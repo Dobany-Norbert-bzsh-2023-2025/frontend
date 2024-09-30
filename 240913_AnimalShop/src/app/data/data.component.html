@@ -1,0 +1,26 @@
+
+<div class="row">
+    <div *ngFor="let oszlop of oszlopok" class="col">
+        {{oszlop.text}}
+    </div>
+    <div class="col">
+        Műveletek
+    </div>
+</div>
+
+<div *ngFor="let todo of todo" class="row">
+    
+    <div *ngFor="let oszlop of oszlopok" class="col">
+        <ng-container [ngSwitch]="oszlop.type">
+            <span *ngSwitchCase="'plain'">
+                {{todo[oszlop.key]}}
+            </span>
+            <input [(ngModel)]="todo[oszlop.key]" *ngSwitchCase="'boolean'" class="form-check-input" role="switch" type="checkbox" />
+        </ng-container>
+    </div>
+    <div class="col">
+        Műveletek
+    </div>
+    
+</div>
+

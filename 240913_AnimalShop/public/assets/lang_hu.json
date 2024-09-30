@@ -1,0 +1,8 @@
+{
+"columns":[
+    {"key":"id","text":"#","type":"plain"},
+    {"key":"userId","text":"Felhasznaló azon.","type":"number"},
+    {"key":"title","text":"Cimke","type":"text"},
+    {"key":"completed","text":"Teljesitve","type":"boolean"}
+]
+}
