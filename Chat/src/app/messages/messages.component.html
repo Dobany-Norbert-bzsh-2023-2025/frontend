@@ -1,0 +1,11 @@
+<!-- {{messages|json}} -->
+<div class="content">
+<div *ngFor="let message of messages" class="message" [ngClass]="message.userName=='DNA'?'mymessage':''">
+    <div class="username">
+        {{message.userName}}
+    </div>
+    <div class="uzenet">
+        {{message.uzi}}
+    </div>
+</div>
+</div>

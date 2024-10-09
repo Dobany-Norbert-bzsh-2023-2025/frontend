@@ -1,0 +1,14 @@
+app-messages
+{
+    background-color: lightgray;
+    height: 80%;
+    display: block;
+    overflow: scroll;
+}
+
+app-send
+{
+    background-color: gray;
+    height: 20%;
+    display: block;    
+}
