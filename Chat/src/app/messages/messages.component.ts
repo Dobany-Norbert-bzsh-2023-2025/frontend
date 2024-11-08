@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseService } from '../base.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-messages',
@@ -8,13 +9,31 @@ import { BaseService } from '../base.service';
 })
 export class MessagesComponent implements OnInit {
   messages:any=[]
-  vmi:string
+  feliratkozas!:Subscription
+  
   constructor(private base:BaseService){
-    this.vmi="alma"
   }
   ngOnInit(): void{
-    this.base.getAllMessage().subscribe(
-      (res)=>this.messages=res
+    this.feliratkozas=this.base.getAllMessage().subscribe(
+      (res:any)=>
+      {
+        this.messages=[]
+        for (const key in res)
+        {
+          console.log(res[key])
+          this.messages.push(res[key])
+        }
+      }
+      
     )
+  }
+
+  ngOnDestroy(): void {
+    if (this.feliratkozas) {this.feliratkozas.unsubscribe()}
+  }
+
+  pageDown()
+  {
+    document.getElementById("pageend")?.scrollTo(0,0)
   }
 }

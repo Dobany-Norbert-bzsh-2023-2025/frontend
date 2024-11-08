@@ -1,5 +1,5 @@
-<!-- {{messages|json}} -->
-<div class="content">
+<!--{{messages|json}}-->
+ <div class="content">
 <div *ngFor="let message of messages" class="message" [ngClass]="message.userName=='DNA'?'mymessage':''">
     <div class="username">
         {{message.userName}}
@@ -9,3 +9,4 @@
     </div>
 </div>
 </div>
+<div id="pageend"></div>

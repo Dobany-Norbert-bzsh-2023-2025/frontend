@@ -1,0 +1,35 @@
+{{items|json}}
+
+<div *ngIf="!error;else err" class="container">
+  <div class="row">
+    <div *ngFor="let oszlop of oszlopok" class="col">
+      {{oszlop.text}}
+    </div>
+    <div class="col">
+      Actions
+    </div>
+  </div>
+  
+  <div class="row my-1">
+    <div *ngFor="let oszlop of oszlopok" class="col">
+      <input [(ngModel)]="newItem[oszlop.key]" [type]="oszlop.type" class="form-control">
+    </div>
+    <div class="col">
+      <button (click)="postItems()" type="button" class="btn btn-danger">Add</button>
+    </div>
+  </div>
+
+  <div *ngFor="let item of items" class="row my-1">
+    <div *ngFor="let oszlop of oszlopok" class="col">
+      <input [(ngModel)]="item[oszlop.key]" [type]="oszlop.type" class="form-control">
+    </div>
+    <div class="col">
+      <button (click)="updateItem(item)" type="button" class="btn btn-primary">Update</button>
+      <button (click)="deleteItem(item)" type="button" class="ms-3 btn btn-secondary">Delete</button>
+    </div>
+  </div>
+</div>
+<ng-template #err>
+  <div class="alert alert-danger" role="alert">{{errorText}}</div>
+</ng-template>
+  

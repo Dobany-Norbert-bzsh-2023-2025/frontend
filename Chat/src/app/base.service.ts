@@ -1,18 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BaseService {
-  url="http://172.16.16.148:7178/api/Messages/"
+  //private url="http://172.16.16.148:7178/api/Messages/"
+  private url = "https://szoftii1n-default-rtdb.europe-west1.firebasedatabase.app/messages.json"
 
-  constructor(private http:HttpClient) { }
+  private messageSubject = new Subject();
+
+  constructor(private http:HttpClient) 
+  { 
+    this.downloadAllMessage() 
+    //setInterval(()=>this.http.get(this.url).forEach((res)=>this.messageSubject.next(res)),1000)
+  }
 
   addMessage(messages:string)
   {
     let body:any = {}
-    body.userName = "DNA"
+    body.userName = "..."
     body.uzi = messages
 
     console.log("Body:", body)
@@ -26,6 +34,10 @@ export class BaseService {
   }
   getAllMessage()
   {
-    return this.http.get(this.url)
+    return this.messageSubject
+  }
+  private downloadAllMessage()
+  {
+    this.http.get(this.url).subscribe((res)=>this.messageSubject.next(res))
   }
 }

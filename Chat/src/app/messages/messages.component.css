@@ -5,12 +5,19 @@
     padding: 0 5px;
     float: left;
     display: block;
+    border-radius: 10px;
+    background-color: white;
 }
 .mymessage
 {
     float: right;
     background-color: black;
     color: white;
+}
+
+.content
+{
+   padding: 15px;
 }
 
 .content::after {

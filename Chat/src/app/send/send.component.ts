@@ -12,6 +12,7 @@ export class SendComponent {
   sendMessage()
   { 
     this.base.addMessage(this.message)
+    this.message=""
   }
 
 }

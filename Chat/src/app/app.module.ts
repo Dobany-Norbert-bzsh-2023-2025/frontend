@@ -10,13 +10,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MessagesComponent } from './messages/messages.component';
 import { SendComponent } from './send/send.component';
 import { ContentComponent } from './content/content.component';
+import { LoginComponent } from './login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MessagesComponent,
     SendComponent,
-    ContentComponent
+    ContentComponent,
+    LoginComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
